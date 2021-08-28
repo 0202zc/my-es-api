@@ -1,0 +1,73 @@
+/*** uncss> filename: http://localhost:9090/css/global.css ***/
+/*body, button, fieldset, form, h1, input, legend, li, p, ul {*/
+/*    margin: 0;*/
+/*    padding: 0*/
+/*}*/
+
+body, button, input {
+    font: 14px/1.5 tahoma, arial, "\5b8b\4f53";
+    -ms-overflow-style: scrollbar
+}
+
+button, h1, input {
+    font-size: 100%
+}
+
+em {
+    font-style: normal
+}
+
+ul {
+    list-style: none
+}
+
+a {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+legend {
+    color: #000
+}
+
+fieldset, img {
+    border: 0
+}
+
+#content, #header {
+    margin-left: auto;
+    margin-right: auto
+}
+
+html {
+    zoom: expression(function(ele){ ele.style.zoom = "1"; document.execCommand("BackgroundImageCache", false, true); }(this))
+}
+
+@font-face {
+    font-family: mui-global-iconfont;
+    src: url(//at.alicdn.com/t/font_1401963178_8135476.eot);
+    src: url(//at.alicdn.com/t/font_1401963178_8135476.eot?#iefix) format('embedded-opentype'), url(//at.alicdn.com/t/font_1401963178_8135476.woff) format('woff'), url(//at.alicdn.com/t/font_1401963178_8135476.ttf) format('truetype'), url(//at.alicdn.com/t/font_1401963178_8135476.svg#iconfont) format('svg')
+}
+
+hr {
+    width: 80%;
+    margin: 0 auto;
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+td, th {
+    border: solid black;
+    border-width: 0px 1px 1px 0px;
+    padding: 10px 0px;
+}
+
+table {
+    border: solid black;
+    border-width: 1px 0px 0px 1px;
+}
