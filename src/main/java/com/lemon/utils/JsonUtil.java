@@ -32,10 +32,10 @@ public final class JsonUtil {
      */
     public static boolean isNumeric(String str) {
         if (str == null || str.length() == 0) {
-            return true;
+            return false;
         }
         Matcher isNum = PATTERN.matcher(str);
-        return !isNum.matches();
+        return isNum.matches();
     }
 
     /**

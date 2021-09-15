@@ -119,7 +119,7 @@ public class HotContentServiceImpl implements HotContentService {
 
     @Override
     public Long deleteContentBeforeTime(String index) {
-        return SpringUtil.getBean(IndexServiceImpl.class).deleteContent(index, new RangeQueryBuilder("gmtCreate").lt("now-6h").format("epoch_millis"));
+        return SpringUtil.getBean(IndexServiceImpl.class).deleteContent(index, new RangeQueryBuilder("gmtCreate").lt("now-8h").format("epoch_millis"));
     }
 
     @Override

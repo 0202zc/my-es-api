@@ -2,6 +2,7 @@ package com.lemon.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lemon.utils.DatetimeUtil;
+import com.lemon.utils.JsonUtil;
 import com.lemon.utils.UUIDUtil;
 import lombok.*;
 import org.springframework.data.elasticsearch.annotations.DateFormat;
@@ -26,7 +27,7 @@ public class WeiboHotSearch implements Serializable {
     @Field(type = FieldType.Keyword)
     private String keyword;
     private String url;
-    private Integer count;
+    private Long count;
     private String flag;
 
     @Field(type = FieldType.Date, format = DateFormat.date_time)
@@ -38,8 +39,12 @@ public class WeiboHotSearch implements Serializable {
         this.rank = rank;
         this.keyword = keyword;
         this.url = url;
-        this.count = "".equals(count.trim()) ? null : Integer.parseInt(count.trim());
         this.flag = flag;
         this.gmtCreate = DatetimeUtil.getFormatDatetime();
+        if (count == null || "".equals(count.trim())) {
+            this.count = null;
+        } else {
+            this.count = JsonUtil.isNumeric(count.trim()) ? Long.parseLong(count.trim()) : Long.parseLong(count.trim().substring(3));
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.lemon.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lemon.utils.DatetimeUtil;
+import com.lemon.utils.JsonUtil;
 import com.lemon.utils.UUIDUtil;
 import lombok.Data;
 import lombok.Getter;
@@ -27,8 +28,8 @@ public class WeiboHot {
     private String rank;
     private String keyword;
     private String url;
-    @Field(type = FieldType.Integer)
-    private Integer count;
+    @Field(type = FieldType.Long)
+    private Long count;
     private String flag;
 
     @Field(type = FieldType.Date, format = DateFormat.date_hour_minute_second)
@@ -40,8 +41,12 @@ public class WeiboHot {
         this.rank = rank;
         this.keyword = keyword;
         this.url = url;
-        this.count = "".equals(count.trim()) ? null : Integer.parseInt(count.trim());
         this.flag = flag;
         this.gmtCreate = new Date();
+        if (count == null || "".equals(count.trim())) {
+            this.count = null;
+        } else {
+            this.count = JsonUtil.isNumeric(count.trim()) ? Long.parseLong(count.trim()) : Long.parseLong(count.trim().substring(3));
+        }
     }
 }
