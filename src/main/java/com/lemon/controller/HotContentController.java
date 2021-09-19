@@ -123,7 +123,7 @@ public class HotContentController {
         }
     }
 
-    @GetMapping("/v2/weibo/hot-keyword/{keyword}2")
+    @GetMapping("/v2/weibo/hot-keyword/{keyword}")
     public String searchKeyword(@PathVariable("keyword") String keyword, @RequestParam("page") Integer pageNo, @RequestParam("per_page") Integer pageSize) {
         LOGGER.info("查询关键词：{}", keyword);
         try {
